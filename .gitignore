@@ -18,3 +18,5 @@ step5/Game
 step6/Game
 
 step7/Game
+/.cabal-sandbox/
+/cabal.sandbox.config
