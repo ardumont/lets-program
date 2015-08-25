@@ -1,14 +1,14 @@
 -- Compile this with 'ghc -o Game Game.hs' and run it with './Game'.
 
-import Data.List
-import Graphics.Gloss.Game
+import           Data.List
+import           Graphics.Gloss.Game
 
 -- Window size
 width  = 600
 height = 400
 
 -- A sprite representing our character
-slimeSprite = bmp "Slime.bmp"
+slimeSprite = bmp "resources/Slime.bmp"
 
 slimeWidth  = fst (snd (boundingBox (scale 0.5 0.5 slimeSprite)))
 slimeHeight = snd (snd (boundingBox (scale 0.5 0.5 slimeSprite)))
@@ -20,10 +20,10 @@ data World = World Point Float [Char]
 -- This starts our gamein a window with a give size, running at 30 frames per second.
 --
 -- The argument 'World (0, 0) 0' is the initial state of our game world, where our character is at the centre of the
--- window and has no velocity. 
+-- window and has no velocity.
 --
 main
-  = play (InWindow "Slime is here!" (round width, round height) (50, 50)) white 30 (World (0, 0) 0 []) draw handle 
+  = play (InWindow "Slime is here!" (round width, round height) (50, 50)) white 30 (World (0, 0) 0 []) draw handle
          [applyMovement, applyVelocity, applyGravity]
 
 -- To draw a frame, we position the character sprite at the location as determined by the current state of the world.

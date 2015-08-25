@@ -1,9 +1,10 @@
 -- Compile this with 'ghc -o Game Game.hs' and run it with './Game'.
 
-import Graphics.Gloss.Game
+import           Graphics.Gloss.Game
 
 -- A sprite representing our character
-slimeSprite = bmp "Slime.bmp"
+slimeSprite :: Picture
+slimeSprite = bmp "resources/Slime.bmp"
 
 -- Our game world consists purely of the location of our character.
 data World = World Point
@@ -11,7 +12,7 @@ data World = World Point
 -- This starts our gamein a window with a give size, running at 30 frames per second.
 --
 -- The argument 'World (0, 0)' is the initial state of our game world, where our character is at the centre of the
--- window. 
+-- window.
 --
 main = play (InWindow "Slime is here!" (600, 400) (50, 50)) white 30 (World (0, 0)) draw handle []
 
